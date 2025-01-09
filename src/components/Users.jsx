@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import UsersList from "./UsersList";
 
+import "../App.css"
+
 export default function Users() {
     const [data, setData] = useState([]); // our initial state is an empty array
     const [loading, setLoading] = useState(true);
@@ -16,7 +18,7 @@ export default function Users() {
                 })
                 .catch(error => {
                     console.log(error);
-                    setLoading(false);
+                    setLoading(true);
                 })
         },
         [] // empty dependency array means this effect will only run once when the component mounts
@@ -27,7 +29,7 @@ export default function Users() {
     }
 
     return (
-        <div>
+        <div className="users-container">
             <UsersList data={data} />
         </div>
     )
